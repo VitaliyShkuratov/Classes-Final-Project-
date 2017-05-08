@@ -1,0 +1,2 @@
+	2/2/2000, 123, Cr, 200.0, Open account/Deposit money
+	2/2/2000, 456, Cr, 2000.0, Open account/Deposit money

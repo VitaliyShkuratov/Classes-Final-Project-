@@ -1,0 +1,31 @@
+package data;
+
+import java.io.*;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+
+
+import business.Transaction;
+import business.TransactionList;
+
+	public final class FileHandler {
+
+		private final static String FileTransaction = "../TXT/transaction.txt";
+		
+
+		public static void safeToTxtFile(ArrayList<Transaction> arrayList)
+		{
+			try {
+				
+				File file = new File(FileTransaction);
+				file.getParentFile().mkdir();
+				
+			    FileOutputStream fos = new FileOutputStream(file);
+			    ObjectOutputStream oos = new ObjectOutputStream(fos);   
+			    oos.writeObject(arrayList); // write MenuArray to ObjectOutputStream
+			    oos.close(); 
+			} catch(Exception ex) {
+			    ex.printStackTrace();
+			}
+		}
+}

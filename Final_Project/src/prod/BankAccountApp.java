@@ -1,0 +1,106 @@
+package prod;
+
+import data.FileHandler;
+import business.*;
+
+public class BankAccountApp {
+
+	public static void main(String[] args) {
+	
+	while(true)
+	{
+	switch(ValidationCommon.getUserRole())
+		{
+		case 1:
+			boolean condition = true;
+			if(ValidationCommon.validateEmployee())
+			{
+				while(condition)
+				{
+					switch(ValidationCommon.getEmployeeFunctions())
+					{
+					case 1:
+						CustomerCommon.addCustomer();
+						break;
+					case 2:
+						AccountCommon.addAccount();
+						break;
+					case 3:
+						AccountCommon.modifyAccount();
+						break;
+					case 4: 
+						CustomerCommon.displayCustomer();
+						break;
+					case 5:
+						AccountCommon.displayAllAccounts();
+						break;
+					case 6:
+						AccountCommon.displayAccounts();
+						break;
+					case 7:
+						CustomerCommon.searchCustomer();
+						break;
+					case 8:
+						AccountCommon.searchAccount();
+						break;
+					case 9:
+						CustomerCommon.removeCustomer();
+						break;
+					case 10:
+						AccountCommon.removeAccount();
+						break;
+					case 11:
+						FileHandler.readFromTxtFile();
+						break;
+					case 12:
+						condition = false;
+						break;
+					}
+				}
+			}
+
+			break;
+		case 2:
+		if(CustomerCommon.validateCustomer())
+		{
+			condition = true;
+			while(condition)
+			{
+				switch(ValidationCommon.getCustomerFunctions())
+				{
+					case 1:
+						AccountCommon.makeDeposit(CustomerList.getCurrentCustomerId());
+						break;
+					case 2:
+						AccountCommon.makeWithdrawal(CustomerList.getCurrentCustomerId());
+						break;
+					case 3:
+						AccountCommon.displayAccounts(CustomerList.getCurrentCustomerId());
+						break;
+					case 4:
+						AccountCommon.searchAccount(CustomerList.getCurrentCustomerId());
+						break;
+					case 5:
+						AccountCommon.getMonthlyInteres(CustomerList.getCurrentCustomerId());
+						break;
+					case 6:
+						CustomerCommon.modifyLoginPin();
+						break;
+					case 7:
+						TransactionCommon.displayAllTransactions(CustomerList.getCurrentCustomerId());
+						break;
+					case 8:
+						condition = false;
+						break;
+				}
+			}
+	
+		}
+			break;
+		case 3:
+			System.exit(0);
+			break;
+			}
+		}
+	}
+}

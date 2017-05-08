@@ -1,0 +1,186 @@
+package prod;
+
+import java.util.Scanner;
+
+import business.AccountList;
+import business.Customer;
+import business.CustomerList;
+
+public final class CustomerCommon {
+	static Scanner newScanner = new Scanner(System.in);
+	
+	public static boolean validateUniqId(String val)
+	{
+		for(Customer current : CustomerList.getCustomerList())
+		{
+			if(current.getCustomerId().equals(val))
+				return true;
+		}
+		return false;
+	}
+	
+	public static void addCustomer()
+	{
+		while(true)
+		{
+			String id;
+			String fn;
+			String ln;
+			String log;
+			String psw;
+			
+			System.out.print("\n\tEnter new customer ID or 'Q' to quit input > ");
+			id = newScanner.next();
+			if(id.length() == 1 && (id.charAt(0) == 'q' || id.charAt(0) == 'Q' ))
+			{
+				break;
+			} 
+			else 
+			{
+				if (!validateUniqId(id))
+				{
+				System.out.print("\n\tEnter customer last name > ");
+				ln = newScanner.next();
+				System.out.print("\n\tEnter customer first name > ");
+				fn = newScanner.next();
+				System.out.print("\n\tEnter customer login > ");
+				log = newScanner.next();
+				System.out.print("\n\tEnter customer pin > ");
+				psw = newScanner.next();
+				
+				CustomerList.addCustomer(id, ln, fn, log, psw);
+				}
+				else {System.out.printf("\tThe customer with Id %s already exist!\n", id);}
+			}
+		}
+	}
+	
+	public static void removeCustomer()
+	{
+		String id;
+		boolean condition = false;
+		System.out.print("\n\tEnter ID is removing customer > ");
+		id = newScanner.next();
+		
+		for (Customer current : CustomerList.getCustomerList())
+		{
+			if(current.getCustomerId().equals(id))
+			{
+				if(!AccountCommon.checkBelongsCustomerAccount(id))
+				{
+					CustomerList.removeCustomer(current);
+					System.out.printf("\tThe customer with Id %s has been removed\n", id);
+				}
+				else 
+				{
+					System.out.println("\tA remote customer contains account(s). Firstly remove owned by the user account(s)!");
+				}
+				condition = true;
+				break;
+			}
+		}
+		if(!condition)
+			System.out.printf("\tAny customer with Id %s has not been found!\n", id);
+	}
+	
+	public static void displayCustomer()
+	{
+		if(CustomerList.getCustomerList().size() > 0)
+		{
+			for (Customer current : CustomerList.getCustomerList())
+				System.out.println(current);
+		}
+		else System.out.println("\tCustomer list is empty.");
+	}
+
+	public static void searchCustomer()
+	{
+		String searchParam;
+		boolean condition = false;
+		System.out.print("\n\tEnter ID or First or Last names is searching customer > ");
+		searchParam = newScanner.next();
+		
+		for (Customer current : CustomerList.getCustomerList())
+		{
+			if(	current.getCustomerId().equals(searchParam) ||
+				current.getCustomerFn().equals(searchParam) ||
+				current.getCustomerLn().equals(searchParam))
+			{
+				System.out.println(current);
+				condition = true;
+			}
+		}
+		if(!condition)
+			System.out.printf("\tAny customer with %s has not been found!\n", searchParam);
+	}
+	
+	public static boolean searchCustomer(String searchId)
+	{
+		for (Customer current : CustomerList.getCustomerList())
+		{
+			if(	current.getCustomerId().equals(searchId))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public static boolean validateCustomer()
+	{
+		System.out.print("\tEnter login > ");
+		String login = newScanner.next();
+		System.out.println();
+		
+		System.out.print("\tEnter pin > ");
+		String pin = newScanner.next();
+		System.out.println();
+		for(Customer current : CustomerList.getCustomerList())
+		{
+			if (login.equals(current.getCustomerLogin()) && pin.equals(current.getCustomerPassword()))
+			{
+				System.out.printf("\tWelcome %s\n", current.getCustomerFn() + " " + current.getCustomerLn());
+				CustomerList.setCurrentCustomerId(current.getCustomerId());
+				return true;
+			}
+		}
+		
+		System.out.println("\tWrong identification, repeat!");
+		return false;
+	}
+	
+	public static void modifyLoginPin()
+	{
+		System.out.print("\tEnter old login > ");
+		String login = newScanner.next();
+		System.out.println();
+		
+		System.out.print("\tEnter old pin > ");
+		String pin = newScanner.next();
+		System.out.println();
+		for(Customer current : CustomerList.getCustomerList())
+		{
+			if (login.equals(current.getCustomerLogin()) && pin.equals(current.getCustomerPassword()))
+			{
+
+				System.out.print("\tEnter new login > ");
+				login = newScanner.next();
+				current.setCustomerLogin(login);
+				System.out.println();
+				
+				System.out.print("\tEnter new pin > ");
+				pin = newScanner.next();
+				current.setCustomerPassword(pin);
+				System.out.println();
+				System.out.println("\tThe login and pin have been successfully modified");
+			}
+			else System.out.println("\tWrong identification, repeat!");
+		}
+	}
+	public static boolean validateEmptyCustomerList()
+	{
+		if(CustomerList.getCustomerList().size() > 0)
+			return true;
+		return false;
+	}
+}

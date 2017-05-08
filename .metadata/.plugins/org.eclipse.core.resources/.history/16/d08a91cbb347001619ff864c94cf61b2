@@ -1,0 +1,102 @@
+package prod;
+
+import business.*;
+
+public class BankAccountApp {
+		
+	public static void main(String[] args) {
+	
+	while(true)
+	{
+	switch(CommonValidation.getUserRole())
+		{
+		case 1:
+			boolean condition = true;
+			if(CommonValidation.validateEmployee())
+			{
+				while(condition)
+				{
+					switch(CommonValidation.getEmployeeFunctions())
+					{
+					case 1:
+						CommonCustomer.addCustomer();
+						break;
+					case 2:
+						CommonAccount.addAccount();
+						break;
+					case 3:
+						CommonAccount.modifyAccount();
+						break;
+					case 4: 
+						CommonCustomer.displayCustomer();
+						break;
+					case 5:
+						CommonAccount.displayAllAccounts();
+						break;
+					case 6:
+						CommonAccount.displayAccounts();
+						break;
+					case 7:
+						CommonCustomer.searchCustomer();
+						break;
+					case 8:
+						CommonAccount.searchAccount();
+						break;
+					case 9:
+						CommonCustomer.removeCustomer();
+						break;
+					case 10:
+						CommonAccount.removeAccount();
+						break;
+					case 11:
+						//CommonAccount.removeAccount();
+						break;
+					case 12:
+						condition = false;
+						break;
+					}
+				}
+			}
+
+			break;
+		case 2:
+		if(CommonCustomer.validateCustomer())
+		{
+			condition = true;
+			while(condition)
+			{
+				switch(CommonValidation.getCustomerFunctions())
+				{
+					case 1:
+						CommonAccount.makeDeposit(CustomerList.getCurrentCustomerId());
+						break;
+					case 2:
+						CommonAccount.makeWithdrawal(CustomerList.getCurrentCustomerId());
+						break;
+					case 3:
+						CommonAccount.displayAccounts(CustomerList.getCurrentCustomerId());
+						break;
+					case 4:
+						CommonAccount.searchAccount(CustomerList.getCurrentCustomerId());
+						break;
+					case 5:
+						CommonAccount.getMonthlyInteres(CustomerList.getCurrentCustomerId());
+						break;
+					case 6:
+						CommonCustomer.modifyLoginPin();
+						break;
+					case 7:
+						condition = false;
+						break;
+				}
+			}
+	
+		}
+			break;
+		case 3:
+			System.exit(0);
+			break;
+			}
+		}
+	}
+}

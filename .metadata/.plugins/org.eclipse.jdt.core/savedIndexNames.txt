@@ -1,0 +1,12 @@
+INDEX VERSION 1.125+C:\Users\Admin\Desktop\Vitaliy\Java Lasalle4_5\.metadata\.plugins\org.eclipse.jdt.core
+408162693.index
+3803287042.index
+1065778115.index
+4124834708.index
+56773694.index
+1960734710.index
+1570686883.index
+2330304485.index
+1914309460.index
+3843016807.index
+467645463.index

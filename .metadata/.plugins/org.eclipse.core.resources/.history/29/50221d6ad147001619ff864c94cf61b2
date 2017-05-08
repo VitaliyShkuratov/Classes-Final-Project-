@@ -1,0 +1,53 @@
+package prod;
+
+import business.CheckingAccount;
+import business.TransactionList;
+
+public class te {
+
+	if (current instanceof CheckingAccount) 
+	{
+		CheckingAccount chAcc = (CheckingAccount) current;
+
+		while (true) {
+			System.out.print("\tEnter amount for withdrawal 1> ");
+			withdrawalAmmount = newScanner.next();
+			System.out.println();
+			if (ValidationCommon.validateDouble(withdrawalAmmount))
+			{
+				withAmm = Double.parseDouble(withdrawalAmmount);
+				if (chAcc.getCurrentBalance() - withAmm >= chAcc
+						.getMinBalance()) 
+				{
+					chAcc.setCurrentBalance(chAcc
+							.getCurrentBalance()
+							- withAmm);
+
+					// add current transaction to list of
+					// transactions
+					TransactionList.addTransaction(accountId, "Cr",
+							withAmm, "Withdrawal money");
+
+					System.out
+							.printf(
+									"\tThe amount CAD %.2f has been successfully removed from your account %s.",
+									withAmm, accountId);
+					System.out.println();
+					condition = true;
+					return 0;
+				}
+				else 
+				{
+					System.out.println("\tInsufficient fund!");
+					return 0;
+				}
+			} 
+			else 
+			{
+				System.out.println("\tWrong format!");
+				return 0;
+			}
+		}
+		}
+	}
+}

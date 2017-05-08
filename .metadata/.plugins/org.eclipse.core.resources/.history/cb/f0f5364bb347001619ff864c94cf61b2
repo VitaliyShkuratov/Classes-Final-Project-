@@ -1,0 +1,15 @@
+package business;
+
+import java.util.ArrayList;
+
+public final class TransactionList {
+	private static ArrayList<Transaction> transactionList = new ArrayList<Transaction>();
+
+	public static void addTransaction(String accountId, String transactionEntry, double amountTransaction, String descriptionTransaction)
+	{
+		transactionList.add(new Transaction(accountId, 
+											transactionEntry, 
+											amountTransaction,
+											descriptionTransaction));
+	}
+}

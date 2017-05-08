@@ -1,0 +1,70 @@
+package business;
+import java.io.Serializable;
+
+public class Transaction {
+	private String accountId;
+	private String transactionDescription;
+	private String transactionEntry;
+	private double transactionAmount;
+	private Date transactionDate;
+	
+	public Date getTransactionDate() {
+		return transactionDate;
+	}
+	public void setTransactionDate(Date transactionDate) {
+		this.transactionDate = transactionDate;
+	}
+	public String getTransactionEntry() {
+		return transactionEntry;
+	}
+	public void setTransactionEntry(String transactionEntry) {
+		this.transactionEntry = transactionEntry;
+	}
+	
+	public String getAccountId() {
+		return accountId;
+	}
+	public void setAccountId(String accountId) {
+		this.accountId = accountId;
+	}
+	public String getTransactionDescription() {
+		return transactionDescription;
+	}
+	public void setTransactionDescription(String transactionDescription) {
+		this.transactionDescription = transactionDescription;
+	}
+	public double getTransactionAmount() {
+		return transactionAmount;
+	}
+	public void setTransactionAmount(double transactionAmount) {
+		this.transactionAmount = transactionAmount;
+	}
+	public Transaction()
+	{
+		this.transactionDate = new Date();
+		this.accountId = "unknown";
+		this.transactionDescription = "unknown";
+		this.transactionEntry = "unknown";
+		this.transactionAmount = 0;
+	}
+	public Transaction(	int month,
+						int day,
+						int year,
+						String accountId,
+						String transactionEntry,
+						double transactionAmount,
+						String transactionDescription)
+	{
+		this.transactionDate = new Date(month, day, year);
+		this.accountId = accountId;
+		this.transactionDescription = transactionDescription;
+		this.transactionEntry = transactionEntry;
+		this.transactionAmount = transactionAmount;
+	}
+	
+	public String toString()
+	{
+		return 	"\t" + this.transactionDate + ", Account Id: " + this.accountId  + 
+				" " + this.transactionEntry + " " + this.transactionAmount + " " + this.transactionDescription;
+	}
+}

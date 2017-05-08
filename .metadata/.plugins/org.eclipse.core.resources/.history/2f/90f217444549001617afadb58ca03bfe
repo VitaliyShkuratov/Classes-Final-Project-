@@ -1,0 +1,55 @@
+package business;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.io.Serializable;
+
+import data.FileHandler;
+
+public class TransactionList {
+	
+	private ArrayList<Transaction> transactionList;// = new ArrayList<Transaction>();
+
+	public TransactionList()
+	{
+		transactionList = new ArrayList<Transaction>();
+	}
+	
+	public ArrayList<Transaction> getTransactionList() {
+		return transactionList;
+	}
+
+
+	public void setTransactionList(ArrayList<Transaction> transactionList) {
+		this.transactionList = transactionList;
+	}
+
+
+	public void addTransaction(	int month,
+										int day,
+										int year,
+										String accountId, 
+										String transactionEntry, 
+										double amountTransaction, 
+										String descriptionTransaction)
+	{
+		transactionList.add(new Transaction(month,
+											day,
+											year,
+											accountId, 
+											transactionEntry, 
+											amountTransaction,
+											descriptionTransaction));
+	}
+	// write binary file transaction
+	/*public static void saveTransaction()
+	{
+		try {
+			FileHandler.writeData(transactionList);
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+	}*/
+
+}

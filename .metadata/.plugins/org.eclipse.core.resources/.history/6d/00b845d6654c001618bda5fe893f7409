@@ -1,0 +1,32 @@
+package data;
+
+import java.io.*;
+import java.util.ArrayList;
+
+
+import business.Transaction;
+import business.TransactionList;
+
+	public final class FileHandler {
+
+		private final static String FileTransaction = "../TXT/transaction.txt";
+		
+
+		public static void safeToTxtFile(ArrayList<Transaction> arrayList)
+		{
+			try {
+				
+				File file = new File(FileTransaction);
+				file.getParentFile().mkdir();
+				
+				PrintWriter write = new PrintWriter(new FileOutputStream(file));
+			    for(Transaction current : TransactionList.getTransactionList())
+			    	write.println(current);
+			    
+			    write.close(); 
+			    
+			} catch(Exception ex) {
+			    ex.printStackTrace();
+			}
+		}
+}

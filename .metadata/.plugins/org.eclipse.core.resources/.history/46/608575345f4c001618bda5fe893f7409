@@ -1,0 +1,18 @@
+package data;
+
+import java.io.*;
+import java.util.ArrayList;
+
+import business.Transaction;
+import business.TransactionList;
+
+	public final class FileHandler {
+
+		private final String FileTransaction = "../DATA/transaction.txt";
+		public void sateToTxtFile(ArrayList<Transaction> transactionList  ,String transaction)
+		{
+			Files.write(file, lines, Charset.forName("UTF-8"));
+		}
+		
+	
+}

@@ -1,0 +1,19 @@
+package data;
+
+import java.io.*;
+
+import business.Transaction;
+import business.TransactionList;
+
+	public final class FileHandler {
+
+		public void sateToTxtFile(String transaction)
+		{
+			try(  PrintWriter out = new PrintWriter( "../DATA/filename.txt" )
+			{
+			    out.println( transaction );
+			}
+		}
+		
+	
+}

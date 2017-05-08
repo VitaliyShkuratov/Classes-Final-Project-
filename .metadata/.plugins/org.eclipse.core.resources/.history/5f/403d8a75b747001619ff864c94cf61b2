@@ -1,0 +1,39 @@
+package prod;
+
+import business.Account;
+import business.AccountList;
+import business.Transaction;
+import business.TransactionList;
+
+public class TransactionCommon {
+	
+	public static void displayAllTransactions()
+	{
+		if(TransactionList.getTransactionList().size() > 0)
+		{
+			for (Transaction current : TransactionList.getTransactionList())
+				System.out.println(current);
+		}
+		else System.out.println("\tTransaction list is empty.");
+	}
+
+	public static void displayAllTransactions(String currentId)
+	{
+		boolean found = false;
+		for (Account current : AccountList.getAccountList())
+		{
+			if(current.getCustomerId().equals(currentId))
+			{
+				for (Transaction cur : TransactionList.getTransactionList())
+					System.out.println(cur);
+				found = true;
+			}
+
+		}
+		if(!found) 
+			System.out.println("\tAny account belonging to the customer.");
+}
+}
+
+
+

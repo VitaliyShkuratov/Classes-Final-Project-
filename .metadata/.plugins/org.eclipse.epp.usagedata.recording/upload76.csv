@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.file.save,1466785543063
+activated,editor,org.eclipse.jdt.ui,3.4.1.r341_v20080827-1100,org.eclipse.jdt.ui.CompilationUnitEditor,1466785600261
+activated,editor,org.eclipse.jdt.ui,3.4.1.r341_v20080827-1100,org.eclipse.jdt.ui.CompilationUnitEditor,1466785642941
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.file.save,1466785710696
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.file.save,1466785712910
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.edit.copy,1466785718822
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.edit.paste,1466785745666
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.file.save,1466785791990
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.edit.copy,1466785834999
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.edit.paste,1466785837999
+no handler,command,org.eclipse.datatools.sqltools.result,,org.eclipse.datatools.sqltools.result.removeAllInstances,1466785857177
+no handler,command,org.eclipse.datatools.sqltools.result,,org.eclipse.datatools.sqltools.result.removeAllInstances,1466785858364
+deactivated,workbench,org.eclipse.ui.workbench,3.4.1.M20080827-0800a,,1466785860038
+activated,workbench,org.eclipse.ui.workbench,3.4.1.M20080827-0800a,,1466785861688
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.edit.delete,1466785862883
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.edit.delete,1466785863393
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.edit.delete,1466785863424
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.edit.delete,1466785863456
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.edit.delete,1466785863487
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.edit.delete,1466785863518
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.edit.delete,1466785863549
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.edit.delete,1466785863596
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.edit.delete,1466785863627
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.edit.delete,1466785863659
+executed,command,org.eclipse.ui,3.4.1.M20080910-0800,org.eclipse.ui.edit.delete,1466785863690

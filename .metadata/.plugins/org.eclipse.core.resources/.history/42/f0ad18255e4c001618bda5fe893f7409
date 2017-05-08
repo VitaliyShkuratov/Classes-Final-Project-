@@ -1,0 +1,24 @@
+package data;
+
+import java.io.*;
+
+import business.Transaction;
+import business.TransactionList;
+
+	public final class FileHandler {
+
+		public sateToTxtFile
+		
+		public static TransactionList readData() throws IOException
+		{
+			TransactionList myCollection = new TransactionList();		
+			FileInputStream inFile = new FileInputStream("accounts.ser");		
+			ObjectInputStream inStream = new ObjectInputStream(inFile);		
+			try
+			{	myCollection = (TransactionList) inStream.readObject() ;	}
+			catch(ClassNotFoundException ex)
+			{			ex.printStackTrace();		}	
+			
+			return  myCollection;
+		}
+}

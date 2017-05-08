@@ -1,0 +1,37 @@
+package data;
+
+import java.io.*;
+import java.util.ArrayList;
+
+import business.Transaction;
+import business.TransactionList;
+
+	public final class FileHandler implements Serializable{
+
+		private static final long serialVersionUID = 1L;
+		Transaction newTransaction = new Transaction();
+		
+		public static void writeData()throws IOException
+		{
+		    FileOutputStream outFile = new FileOutputStream("accounts.ser");	
+		    ObjectOutputStream outStream = new ObjectOutputStream(outFile);	    
+		    
+		    outStream.writeObject(newTransaction);	    
+		    
+		    
+		    outStream.close();
+		}
+		
+		public static TransactionList readData() throws IOException
+		{
+			TransactionList myCollection = new TransactionList();		
+			FileInputStream inFile = new FileInputStream("accounts.ser");		
+			ObjectInputStream inStream = new ObjectInputStream(inFile);		
+			try
+			{	myCollection = (TransactionList) inStream.readObject() ;	}
+			catch(ClassNotFoundException ex)
+			{			ex.printStackTrace();		}	
+			
+			return  myCollection;
+		}
+}

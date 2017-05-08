@@ -1,0 +1,58 @@
+package business;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.io.Serializable;
+
+import data.FileHandler;
+
+public final class TransactionList implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	private static ArrayList<Transaction> transactionList = new ArrayList<Transaction>();
+
+	public static ArrayList<Transaction> getTransactionList() {
+		return transactionList;
+	}
+
+
+	public static void setTransactionList(ArrayList<Transaction> transactionList) {
+		TransactionList.transactionList = transactionList;
+	}
+
+
+	public static void addTransaction(	int month,
+										int day,
+										int year,
+										String accountId, 
+										String transactionEntry, 
+										double amountTransaction, 
+										String descriptionTransaction)
+	{
+		transactionList.add(new Transaction(month,
+											day,
+											year,
+											accountId, 
+											transactionEntry, 
+											amountTransaction,
+											descriptionTransaction));
+	}
+	// write binary file transaction
+	public static void saveTransaction()
+	{
+		for(Transaction current : transactionList)
+		{
+			try {
+				FileHandler.writeData(current);
+			} 
+			catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+
+
+	
+
+}
